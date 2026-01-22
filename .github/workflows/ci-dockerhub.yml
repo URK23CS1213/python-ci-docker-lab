@@ -10,6 +10,7 @@ on:
 jobs:
   build-test-push:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -24,8 +25,9 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      # ✅ FIX IS HERE
       - name: Run tests
-        run: pytest -q
+        run: python -m pytest -q
 
       - name: Docker meta
         id: meta
